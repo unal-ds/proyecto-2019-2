@@ -1,6 +1,19 @@
-public class Administrador {
-    int cantUsuariosxAdm;
+import java.io.Serializable;
+import java.util.*;
+
+public class Administrador extends Usuario implements Serializable {
+    
+    private static final long serialVersionUID= 2L;
+    
+    private int cantUsuariosxAdm;
     Lista UsuariosxAdm = new Lista(cantUsuariosxAdm);
+
+    public Administrador(int cantUsuariosxAdm, String nombre, long id, int edad, String tipo) {
+        super(nombre, id, edad, tipo);
+        this.cantUsuariosxAdm = cantUsuariosxAdm;
+    }
+    
+    
     public void administrarGimnasio(){
         
     }
@@ -8,7 +21,7 @@ public class Administrador {
         return UsuariosxAdm.delete(cliente);
     }
     public void modificarUsuario(Cliente cliente1, Cliente cliente2){
-        
+        UsuariosxAdm.replace(cliente1, cliente2);
     }
     public void modificarInformaciónGimnasio(Gimnasio gimnasio){
         
@@ -16,4 +29,8 @@ public class Administrador {
     public void actualizarDisponibilidadMáquina(){
         
     }
+    
+    public String toString() {
+    return "cantidad de usuarios " + cantUsuariosxAdm + "; " + "nombre  " + nombre + ", identificacion " + id + ", edad "+ edad +", tipo" + tipo ;
+  }
 }

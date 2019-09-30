@@ -69,4 +69,12 @@ public class Lista <T>{
         }
         System.out.println();
     }
+    public void replace(T a, T b){
+        for(int i = 0; i < larray.length; i++){
+            if(larray[i] == a){
+                larray[i] = b;
+                break;
+            }
+        }
+    }
 }
